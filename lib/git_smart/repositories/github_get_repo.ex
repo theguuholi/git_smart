@@ -10,7 +10,7 @@ defmodule GitSmart.Repositories.GithubApi do
     |> handle_response()
   end
 
-  defp handle_response({:ok, %{status: 404}}), do: {:error, "Not Found"}
+  defp handle_response({:ok, %{status: 403}}), do: {:error, "API rate limit exceeded"}
 
   defp handle_response({:ok, response}) do
     response.body
