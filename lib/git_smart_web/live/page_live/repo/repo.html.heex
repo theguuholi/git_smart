@@ -15,8 +15,17 @@
       <p class="text-xs text-zinc-400">
         pumpkin123
       </p>
-      <button type="button" class="bg-sky-600 btn-default p-1">+</button>
+      <button
+        type="button"
+        phx-click="add_repo"
+        phx-target={@myself}
+        class="bg-sky-600 btn-default p-1"
+      >
+        +
+      </button>
     </div>
-    <div class="mt-8 text-right">Repo added!</div>
+    <div :if={@is_added} class="mt-8 text-right text-xs text-green-600">
+      Repo added!
+    </div>
   </div>
 </li>
