@@ -2,4 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.btn-default {
+  @apply hover:brightness-95 text-zinc-100 font-bold rounded-full;
+}
 /* This file is for your main application CSS */
