@@ -17,29 +17,5 @@
 </div>
 
 <ul class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4">
-  <li
-    :for={_ <- 1..5}
-    class="flex space-x-3 p-2 bg-sky-50 hover:brightness-95 transition-all rounded-md"
-  >
-    <img
-      src="https://avatars.githubusercontent.com/u/1481354?s=200&v4"
-      class="h-6 w-6 rounded-full"
-    />
-    <div class="flex-1 space-y-4">
-      <div class="flex items-center justify-between">
-        <h3>Elixir Language</h3>
-        <span>
-          <strong>Watchers:</strong> 1,000
-        </span>
-      </div>
-
-      <div class="flex items-center justify-between">
-        <p class="text-xs text-zinc-400">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae maxime iste deserunt.
-        </p>
-        <button type="button" class="bg-sky-600 btn-default p-1">+</button>
-      </div>
-      <div class="mt-8 text-right">Repo added!</div>
-    </div>
-  </li>
+  <.live_component :for={i <- 1..5} module={Repo} id={Integer.to_string(i)} />
 </ul>
