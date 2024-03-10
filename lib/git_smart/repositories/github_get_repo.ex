@@ -1,11 +1,11 @@
 defmodule GitSmart.Repositories.GithubApi do
   @client GitSmart.Finch
-  def search_repository_by_language() do
-    url =
-      "https://api.github.com/search/repositories?q=language:elixir&sort=stars&order=desc&page=1&per_page=5"
+  def search_repository_by_language(language, page) do
+    url = "https://api.github.com/search/repositories"
+    uri = "#{url}?q=language:#{language}&sort=stars&order=desc&page=#{page}&per_page=5"
 
     :get
-    |> Finch.build(url)
+    |> Finch.build(uri)
     |> Finch.request(@client)
     |> handle_response()
   end
@@ -13,6 +13,24 @@ defmodule GitSmart.Repositories.GithubApi do
   defp handle_response({:ok, %{status: 404}}), do: {:error, "Not Found"}
 
   defp handle_response({:ok, response}) do
-    {:ok, Jason.decode!(response.body)}
+    response.body
+    |> Jason.decode!()
+    |> then(fn %{"items" => repositories} ->
+      Enum.map(repositories, &map_repository/1)
+    end)
+  end
+
+  defp map_repository(repository) do
+    %{
+      git_id: repository["id"],
+      avatar_url: repository["owner"]["avatar_url"],
+      full_name: repository["full_name"],
+      watchers_count: repository["watchers_count"],
+      forks: repository["forks"],
+      description: repository["description"],
+      name: repository["watchers_count"],
+      open_issues: repository["open_issues"],
+      language: repository["language"]
+    }
   end
 end
