@@ -1,19 +1,7 @@
 defmodule GitSmart.Repositories do
-  def list() do
-    for _ <- 1..10, do: mock()
-  end
+  alias GitSmart.Repositories.GithubApi
 
-  defp mock() do
-    %{
-      git_id: :rand.uniform(1000),
-      avatar_url: "https://avatars.githubusercontent.com/u/1481354?s=200&v4",
-      full_name: "Elixir Language",
-      watchers_count: 1000,
-      forks: 500,
-      description: "pumpkin123",
-      name: "elixir",
-      open_issues: 10,
-      language: "Elixir"
-    }
+  def list(language, page) do
+    GithubApi.search_repository_by_language(language, page)
   end
 end
