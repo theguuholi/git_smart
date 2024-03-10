@@ -1,5 +1,5 @@
 <div class="grid gap-2 md:grid-cols-5">
-  <button
+  <.link
     :for={
       {language, bg_color} <- [
         {"Elixir", "bg-purple-700"},
@@ -9,11 +9,11 @@
         {"Go", "bg-blue-700"}
       ]
     }
-    type="button"
-    class={[bg_color, " btn-default"]}
+    patch={~p"/?language=#{language}"}
+    class={[bg_color, " btn-default text-center"]}
   >
     <%= language %>
-  </button>
+  </.link>
 </div>
 
 <ul class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4">
