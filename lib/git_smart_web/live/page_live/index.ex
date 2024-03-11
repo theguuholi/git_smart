@@ -19,7 +19,7 @@ defmodule GitSmartWeb.PageLive.Index do
         |> put_flash(:error, message)
 
       repositories ->
-        socket |> assign(:repositories, repositories)
+        stream(socket, :repositories, repositories, at: 0)
     end
   end
 end

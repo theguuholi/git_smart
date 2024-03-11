@@ -22,6 +22,7 @@ defmodule GitSmart.Repositories.GithubApi do
 
   defp map_repository(repository) do
     %{
+      id: repository["id"],
       git_id: repository["id"],
       avatar_url: repository["owner"]["avatar_url"],
       full_name: repository["full_name"],

@@ -16,11 +16,15 @@
   </.link>
 </div>
 
-<ul class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4">
+<ul
+  class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4"
+  phx-update="stream"
+  id="repositories"
+>
   <.live_component
-    :for={repository <- @repositories}
+    :for={{dom_id, repository} <- @streams.repositories}
     module={Repo}
-    id={"repo-" <> Integer.to_string(repository.git_id)}
+    id={"repository-" <> dom_id}
     repository={repository}
   />
 </ul>
