@@ -8,6 +8,10 @@ defmodule GitSmartWeb.PageLive.Index do
     {:noreply, socket}
   end
 
+  def handle_event("load_more", _, socket) do
+    {:noreply, socket}
+  end
+
   defp assign_repositories(socket, params) do
     language = params["language"] || "elixir"
     page = params["page"] || "1"

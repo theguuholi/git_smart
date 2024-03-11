@@ -2,7 +2,7 @@ defmodule GitSmart.Repositories.GithubApi do
   @client GitSmart.Finch
   def search_repository_by_language(language, page) do
     url = "https://api.github.com/search/repositories"
-    uri = "#{url}?q=language:#{language}&sort=stars&order=desc&page=#{page}&per_page=5"
+    uri = "#{url}?q=language:#{language}&sort=stars&order=desc&page=#{page}&per_page=10"
 
     :get
     |> Finch.build(uri)
