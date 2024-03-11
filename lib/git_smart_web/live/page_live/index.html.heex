@@ -20,6 +20,7 @@
   class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4"
   phx-update="stream"
   id="repositories"
+  phx-viewport-bottom="load_more"
 >
   <.live_component
     :for={{dom_id, repository} <- @streams.repositories}
@@ -29,6 +30,6 @@
   />
 </ul>
 
-<div class="py-4 text-center text-lg animate-pulse" id="load-more" phx-hook="LoadMoreRepositories">
+<div class="py-4 text-center text-lg animate-pulse" id="load-more">
   Loading...
 </div>
