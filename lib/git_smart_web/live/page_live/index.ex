@@ -11,7 +11,13 @@ defmodule GitSmartWeb.PageLive.Index do
     language = params["language"] || "elixir"
     page = 1
     repositories = Repositories.list(language, page)
-    socket = assign(socket, :repositories, repositories)
-    {:noreply, socket}
+
+    case repositories do
+      {:error, message} ->
+        {:noreply, socket |> put_flash(:error, message) |> assign(:repositories, [])}
+
+      repositories ->
+        {:noreply, assign(socket, :repositories, repositories)}
+    end
   end
 end
