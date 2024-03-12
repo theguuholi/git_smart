@@ -1,5 +1,5 @@
 <div class="grid gap-2 md:grid-cols-5">
-  <button
+  <.link
     :for={
       {language, bg_color} <- [
         {"Elixir", "bg-purple-700"},
@@ -9,18 +9,30 @@
         {"Go", "bg-blue-700"}
       ]
     }
-    type="button"
-    class={[bg_color, " btn-default"]}
+    navigate={~p"/?language=#{language}"}
+    class={[bg_color, " btn-default text-center"]}
   >
     <%= language %>
-  </button>
+  </.link>
 </div>
 
-<ul class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4">
+<ul
+  class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4"
+  id="repositories"
+  phx-update="stream"
+>
   <.live_component
-    :for={repository <- @repositories}
+    :for={{dom_id, repository} <- @streams.repositories}
     module={Repo}
-    id={repository.id}
+    id={dom_id}
     repository={repository}
   />
 </ul>
+
+<div
+  class="py4 text-center text-lg animate-pulse text-purple-700"
+  phx-hook="LoadMoreRepositories"
+  id="load-repositories"
+>
+  Loading...
+</div>
