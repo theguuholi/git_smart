@@ -1,19 +1,19 @@
-<li id={@id} class="flex space-x-3 p-2 bg-sky-50 hover:brightness-95 transition-all rounded-md">
-  <img
-    src="https://avatars.githubusercontent.com/u/1481354?s=200&v4"
-    class="h-6 w-6 rounded-full"
-  />
+<li
+  id={Integer.to_string(@id)}
+  class="flex space-x-3 p-2 bg-sky-50 hover:brightness-95 transition-all rounded-md"
+>
+  <img src={@repository.avatar_url} class="h-6 w-6 rounded-full" />
   <div class="flex-1 space-y-4">
     <div class="flex items-center justify-between">
-      <h3>Elixir Language</h3>
+      <h3><%= @repository.full_name %></h3>
       <span>
-        <strong>Watchers:</strong> 1,000
+        <strong>Watchers:</strong> <%= @repository.watchers_count %>
       </span>
     </div>
 
     <div class="flex items-center justify-between">
       <p class="text-xs text-zinc-400">
-        pumpkin
+        <%= @repository.description %>
       </p>
       <button
         type="button"
