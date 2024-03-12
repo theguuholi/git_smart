@@ -26,9 +26,6 @@ defmodule GitSmartWeb.PageLive.Index do
     page = socket.assigns.page + 1
     repositories = Repositories.list(language, page)
 
-    IO.inspect(page)
-    IO.inspect(repositories)
-
     socket =
       socket
       |> update_repositories(repositories)
@@ -43,7 +40,7 @@ defmodule GitSmartWeb.PageLive.Index do
         socket |> put_flash(:error, message) |> stream(:repositories, [])
 
       repositories ->
-        stream(socket, :repositories, repositories, at: 0)
+        stream(socket, :repositories, repositories)
     end
   end
 end
