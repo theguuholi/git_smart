@@ -1,0 +1,1 @@
+alias GitSmart.Repositories.GithubApi
