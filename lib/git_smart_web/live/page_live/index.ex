@@ -4,8 +4,14 @@ defmodule GitSmartWeb.PageLive.Index do
   alias GitSmart.Repositories
 
   def mount(_, _, socket) do
-    repositories = Repositories.list()
-    socket = assign(socket, :repositories, repositories)
     {:ok, socket}
+  end
+
+  def handle_params(params, _, socket) do
+    language = params["language"] || "elixir"
+    page = 1
+    repositories = Repositories.list(language, page)
+    socket = assign(socket, :repositories, repositories)
+    {:noreply, socket}
   end
 end
