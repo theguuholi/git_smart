@@ -17,5 +17,5 @@
 </div>
 
 <ul class=" space-y-4 divide-y divide-zinc-200 rounded-lg shadow-md p-1 mt-4">
-  <.live_component :for={id <- 1..5} module={Repo} id={Integer.to_string(id)} />
+  <.live_component :for={id <- ["elixir"]} module={Repo} id={id} />
 </ul>
