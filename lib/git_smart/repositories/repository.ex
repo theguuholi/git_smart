@@ -15,7 +15,7 @@ defmodule GitSmart.Repositories.Repository do
     field :language, :string
     field :full_name, :string
     field :open_issues, :integer
-    field :url, :string
+    field :html_url, :string
 
     timestamps()
   end
