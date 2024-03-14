@@ -7,11 +7,11 @@ defmodule GitSmart.Repo.Migrations.CreateRepositories do
       add :avatar_url, :string
       add :description, :text
       add :forks, :integer
-      add :git_id, :string
+      add :git_id, :integer
       add :language, :string
-      add :name, :string
+      add :full_name, :string
       add :open_issues, :integer
-      add :url, :string
+      add :html_url, :string
 
       timestamps()
     end
