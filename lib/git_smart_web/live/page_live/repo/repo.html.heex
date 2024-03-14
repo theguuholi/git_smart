@@ -14,11 +14,11 @@
       </p>
       <button
         type="button"
-        class="bg-sky-600 btn-default p-1"
+        class="bg-sky-600 btn-default w-5 h-5 flex p-1 "
         phx-click="add_repo"
         phx-target={@myself}
       >
-        +
+        <.icon name="hero-plus" class="h-5 w-5" />
       </button>
     </div>
     <div :if={@is_added} class="mt-8 text-right">Repo added!</div>

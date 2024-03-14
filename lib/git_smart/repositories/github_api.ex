@@ -25,6 +25,7 @@ defmodule GitSmart.Repositories.GithubApi do
     %{
       id: repository["id"],
       git_id: repository["id"],
+      url: repository["url"],
       avatar_url: repository["owner"]["avatar_url"],
       full_name: repository["full_name"],
       watchers_count: repository["watchers_count"],

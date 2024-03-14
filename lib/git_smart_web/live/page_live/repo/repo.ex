@@ -2,6 +2,8 @@ defmodule GitSmartWeb.PageLive.Repo do
   use GitSmartWeb, :live_component
 
   def update(assigns, socket) do
+    IO.inspect(assigns)
+
     socket =
       socket
       |> assign(assigns)
