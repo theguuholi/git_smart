@@ -1,6 +1,7 @@
 defmodule GitSmartWeb.PageLive.Repo do
   use GitSmartWeb, :live_component
   alias GitSmart.Repositories
+  import GitSmartWeb.RepositoryComponents
 
   def update(assigns, socket) do
     socket =

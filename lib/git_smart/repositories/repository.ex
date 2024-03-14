@@ -2,7 +2,7 @@ defmodule GitSmart.Repositories.Repository do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_fields ~w(avatar_url description forks git_id language full_name open_issues html_url)a
+  @required_fields ~w(avatar_url description forks git_id language full_name open_issues html_url watchers_count )a
   @fields ~w()a
 
   @primary_key {:id, :binary_id, autogenerate: true}
@@ -15,6 +15,7 @@ defmodule GitSmart.Repositories.Repository do
     field :language, :string
     field :full_name, :string
     field :open_issues, :integer
+    field :watchers_count, :integer
     field :html_url, :string
 
     timestamps()

@@ -1,0 +1,12 @@
+<ul>
+  <li :for={repository <- @repositories}>
+    <.repository_item repository={repository}>
+      <:action>
+        <button type="button" class="bg-emerald-600 btn-default w-5 h-5 flex p-1 ">
+          <.icon name="hero-chevron-right" class="h-5 w-5" />
+        </button>
+      </:action>
+      <:detail></:detail>
+    </.repository_item>
+  </li>
+</ul>

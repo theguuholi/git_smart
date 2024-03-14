@@ -8,6 +8,7 @@ defmodule GitSmart.Repo.Migrations.CreateRepositories do
       add :description, :text
       add :forks, :integer
       add :git_id, :integer
+      add :watchers_count, :integer
       add :language, :string
       add :full_name, :string
       add :open_issues, :integer

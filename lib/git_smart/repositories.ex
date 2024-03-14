@@ -12,4 +12,6 @@ defmodule GitSmart.Repositories do
     |> Repository.changeset()
     |> Repo.insert!()
   end
+
+  def all(), do: Repo.all(Repository)
 end
