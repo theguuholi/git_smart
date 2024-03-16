@@ -25,7 +25,6 @@ defmodule GitSmartWeb.PageLive.Repo do
 
   def handle_event("go_to_repo", %{"git_id" => git_id}, socket) do
     # explain why we have backend event and fe event using navigation and be aware to use buttons
-    socket = push_navigate(socket, to: ~p"/repositories/#{git_id}")
-    {:noreply, socket}
+    {:noreply, push_navigate(socket, to: ~p"/repositories/#{git_id}")}
   end
 end

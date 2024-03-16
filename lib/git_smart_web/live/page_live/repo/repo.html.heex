@@ -1,5 +1,5 @@
 <li id={@id}>
-  <.repository_item repository={@repository}>
+  <.repository_item repository={@repository} link={~p"/repositories/#{@repository.git_id}"}>
     <:action>
       <button
         :if={!@is_repository_saved}
@@ -10,19 +10,9 @@
       >
         <.icon name="hero-plus" class="h-5 w-5" />
       </button>
-      <button
-        :if={@is_repository_saved}
-        type="button"
-        phx-click="go_to_repo"
-        phx-value-git_id={@repository.git_id}
-        phx-target={@myself}
-        class="bg-emerald-600 btn-default w-5 h-5 flex p-1 "
-      >
-        <.icon name="hero-chevron-right" class="h-5 w-5" />
-      </button>
     </:action>
-    <:detail :if={@is_added}>
+    <:details :if={@is_added}>
       <div class="mt-8 text-right">Repo added!</div>
-    </:detail>
+    </:details>
   </.repository_item>
 </li>

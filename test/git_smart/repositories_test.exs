@@ -38,4 +38,13 @@ defmodule GitSmart.RepositoriesTest do
       assert 1 == Enum.count(git_ids)
     end
   end
+
+  describe "get_repository_by_git_id/1" do
+    test "gets a repository by git id" do
+      Repositories.create(@payload)
+      repository = Repositories.get_repository_by_git_id(@payload.git_id)
+      assert repository.git_id == 279_895_213
+      assert repository.language == "Elixir"
+    end
+  end
 end
