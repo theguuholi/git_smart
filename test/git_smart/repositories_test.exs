@@ -29,4 +29,13 @@ defmodule GitSmart.RepositoriesTest do
       assert repository.html_url == "https://api.github.com/repos/papercups-io/papercups"
     end
   end
+
+  describe "list_all_saved_git_ids/0" do
+    test "lists all saved git ids" do
+      Repositories.create(@payload)
+      git_ids = Repositories.list_all_saved_git_ids()
+      assert @payload.git_id == Enum.at(git_ids, 0)
+      assert 1 == Enum.count(git_ids)
+    end
+  end
 end
