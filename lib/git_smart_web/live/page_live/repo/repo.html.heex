@@ -1,10 +1,13 @@
 <li id={@id}>
-  <.repository_item repository={@repository} link={~p"/repositories/#{@repository.git_id}"}>
+  <.repository_item
+    repository={@repository}
+    link={(@is_repository_saved && ~p"/repositories/#{@repository.git_id}") || "#"}
+  >
     <:action>
       <button
         :if={!@is_repository_saved}
         type="button"
-        class="bg-sky-600 btn-default w-5 h-5 flex p-1 "
+        class="bg-sky-600 btn-default p-2 flex z-50"
         phx-click="add_repo"
         phx-target={@myself}
       >

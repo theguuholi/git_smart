@@ -1,5 +1,6 @@
 <div class="p-10 bg-white" id={@repository.id}>
   <div class="flex flex-col md:flex-row space-x-3">
+    <.link navigate={~p"/"} class="text-zinc-500">Back</.link>
     <img src={@repository.avatar_url} alt="" class="h-50 w-50 rounded-full" />
     <div class="flex-1 space-y-1">
       <div class="pt-10 flex items-center justify-between">

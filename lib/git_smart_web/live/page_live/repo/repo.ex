@@ -20,7 +20,10 @@ defmodule GitSmartWeb.PageLive.Repo do
 
     Repositories.create(repository)
 
-    {:noreply, update(socket, :is_added, &(!&1))}
+    {:noreply,
+     socket
+     |> update(:is_added, &(!&1))
+     |> update(:is_repository_saved, &(!&1))}
   end
 
   def handle_event("go_to_repo", %{"git_id" => git_id}, socket) do
