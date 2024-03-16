@@ -2,12 +2,23 @@
   <.repository_item repository={@repository}>
     <:action>
       <button
+        :if={!@is_repository_saved}
         type="button"
         class="bg-sky-600 btn-default w-5 h-5 flex p-1 "
         phx-click="add_repo"
         phx-target={@myself}
       >
         <.icon name="hero-plus" class="h-5 w-5" />
+      </button>
+      <button
+        :if={@is_repository_saved}
+        type="button"
+        phx-click="go_to_repo"
+        phx-value-git_id={@repository.git_id}
+        phx-target={@myself}
+        class="bg-emerald-600 btn-default w-5 h-5 flex p-1 "
+      >
+        <.icon name="hero-chevron-right" class="h-5 w-5" />
       </button>
     </:action>
     <:detail :if={@is_added}>

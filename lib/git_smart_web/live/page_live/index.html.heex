@@ -26,6 +26,7 @@
     :for={{dom_id, repository} <- @streams.repositories}
     module={Repo}
     id={dom_id}
+    git_ids={@git_ids}
     repository={repository}
   />
 </ul>

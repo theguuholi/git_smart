@@ -11,11 +11,13 @@ defmodule GitSmartWeb.PageLive.Index do
     language = params["language"] || "elixir"
     page = 1
     repositories = Repositories.list(language, page)
+    git_ids = Repositories.list_all_saved_git_ids()
 
     socket =
       socket
       |> assign(language: language)
       |> assign(page: page)
+      |> assign(git_ids: git_ids)
       |> update_repositories(repositories)
 
     {:noreply, socket}
