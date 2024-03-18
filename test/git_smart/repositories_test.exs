@@ -47,4 +47,13 @@ defmodule GitSmart.RepositoriesTest do
       assert repository.language == "Elixir"
     end
   end
+
+  describe "all/0" do
+    test "lists all repositories" do
+      Repositories.create(@payload)
+      repositories = Repositories.all()
+      assert @payload.git_id == Enum.at(repositories, 0).git_id
+      assert 1 == Enum.count(repositories)
+    end
+  end
 end

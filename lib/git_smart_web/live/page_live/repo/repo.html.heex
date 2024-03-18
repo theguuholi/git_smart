@@ -9,6 +9,7 @@
         type="button"
         class="bg-sky-600 btn-default p-2 flex z-50"
         phx-click="add_repo"
+        id={@repository.full_name}
         phx-target={@myself}
       >
         <.icon name="hero-plus" class="h-5 w-5" />
