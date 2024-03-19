@@ -3,6 +3,7 @@ defmodule GitSmartWeb.RepositoryComponents do
 
   slot :action
   slot :details
+  attr :repository, :any
 
   def repository_item(assigns) do
     ~H"""

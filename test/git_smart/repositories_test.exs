@@ -36,4 +36,13 @@ defmodule GitSmart.RepositoriesTest do
       assert Repositories.all() |> length() == 1
     end
   end
+
+  describe "list_all_saved_git_ids/0" do
+    test "list all saved git ids" do
+      Repositories.create(@payload)
+
+      git_ids = Repositories.list_all_saved_git_ids()
+      assert 1 == Enum.count(git_ids)
+    end
+  end
 end
