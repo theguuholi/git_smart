@@ -11,7 +11,7 @@ defmodule GitSmart.Application do
       # Start the Telemetry supervisor
       GitSmartWeb.Telemetry,
       # Start the Ecto repository
-      # GitSmart.Repo,
+      GitSmart.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: GitSmart.PubSub},
       # Start Finch

@@ -19,7 +19,10 @@ defmodule GitSmart.Repositories.Repository do
     timestamps()
   end
 
-  @doc false
+  def changeset(attrs) do
+    changeset(%__MODULE__{}, attrs)
+  end
+
   def changeset(repository, attrs) do
     repository
     |> cast(attrs, @fields)

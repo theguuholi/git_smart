@@ -1,7 +1,7 @@
 defmodule GitSmartWeb.PageLive.Index do
   use GitSmartWeb, :live_view
-  alias GitSmartWeb.PageLive.Repo
   alias GitSmart.Repositories
+  alias GitSmartWeb.PageLive.Repo
 
   def mount(_, _, socket) do
     {:ok, socket}
