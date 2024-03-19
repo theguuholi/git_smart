@@ -29,4 +29,11 @@ defmodule GitSmart.RepositoriesTest do
       assert repository.html_url == "https://api.github.com/repos/papercups-io/papercups"
     end
   end
+
+  describe "all/0" do
+    test "tiven a list of repositories, then return all repositories" do
+      Repositories.create(@payload)
+      assert Repositories.all() |> length() == 1
+    end
+  end
 end
