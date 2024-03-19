@@ -4,6 +4,8 @@ defmodule GitSmartWeb.PageLive.Index do
   alias GitSmartWeb.PageLive.Repo
 
   def mount(_, _, socket) do
+    git_ids = Repositories.list_all_saved_git_ids()
+    socket = assign(socket, :git_ids, git_ids)
     {:ok, socket}
   end
 
