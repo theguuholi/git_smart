@@ -21,15 +21,13 @@
   id="repositories"
   phx-update="stream"
   phx-viewport-bottom="load_more"
+  phx-page-loading
 >
   <.live_component
     :for={{dom_id, repository} <- @streams.repositories}
     module={Repo}
     id={dom_id}
+    git_ids={@git_ids}
     repository={repository}
   />
 </ul>
-
-<div class="py4 text-center text-lg animate-pulse text-purple-700" id="load-repositories">
-  Loading...
-</div>

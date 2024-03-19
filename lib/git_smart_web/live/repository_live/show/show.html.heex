@@ -1,0 +1,34 @@
+<div class="p-10 bg-white" id={@repository.id}>
+  <div class="flex flex-col md:flex-row space-x-3">
+    <.link navigate={~p"/"} class="text-zinc-500">Back</.link>
+    <img src={@repository.avatar_url} alt="" class="h-50 w-50 rounded-full" />
+    <div class="flex-1 space-y-1">
+      <div class="pt-10 flex items-center justify-between">
+        <p class="text-gray-900">
+          <strong>Language: </strong>
+        </p>
+        <p><%= @repository.language %></p>
+      </div>
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-medium">
+          <strong>repository: </strong>
+          <a href={@repository.html_url}><%= @repository.full_name %></a>
+        </h3>
+        <p class="text-sm text-gray-500">
+          <strong>Forks:</strong> <%= @repository.forks %>
+        </p>
+      </div>
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-medium">
+          <strong>Open Issues: </strong><%= @repository.open_issues %>
+        </h3>
+        <p class="text-sm text-gray-500">
+          <strong>Watchers:</strong> <%= @repository.watchers_count %>
+        </p>
+      </div>
+      <div class="pt-10 flex items-center justify-between">
+        <p class="text-gray-800"><%= @repository.description %></p>
+      </div>
+    </div>
+  </div>
+</div>

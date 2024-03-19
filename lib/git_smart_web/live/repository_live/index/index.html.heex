@@ -1,0 +1,8 @@
+<ul class="space-y-4">
+  <li :for={repository <- @repositories} id={repository.id}>
+    <.repository_item repository={repository} link={~p"/repositories/#{repository.git_id}"}>
+      <:action></:action>
+      <:details></:details>
+    </.repository_item>
+  </li>
+</ul>
