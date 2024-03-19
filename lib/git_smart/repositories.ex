@@ -21,4 +21,8 @@ defmodule GitSmart.Repositories do
     |> select([r], r.git_id)
     |> Repo.all()
   end
+
+  def get_repository_by_git_id(git_id) do
+    Repo.get_by(Repository, git_id: git_id)
+  end
 end

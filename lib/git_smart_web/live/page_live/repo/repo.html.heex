@@ -1,24 +1,13 @@
 <li id={@id}>
-  <.repository_item repository={@repository}>
-    <:action>
+  <.repository_item repository={@repository} link={~p"/repositories/#{@repository.git_id}"}>
+    <:action :if={!@is_repository_saved}>
       <button
-        :if={!@is_repository_saved}
         type="button"
         class="bg-sky-600 w-5 h-5 flex btn-default p-1"
         phx-click="add_repo"
         phx-target={@myself}
       >
         <.icon name="hero-plus" />
-      </button>
-      <button
-        :if={@is_repository_saved}
-        type="button"
-        class="bg-emerald-600 w-5 h-5 flex btn-default p-1"
-        phx-click="go_to_repo"
-        phx-value-git_id={@repository.git_id}
-        phx-target={@myself}
-      >
-        <.icon name="hero-chevron-right" />
       </button>
     </:action>
     <:details>

@@ -1,8 +1,5 @@
 <ul>
   <li :for={repository <- @repositories} id={repository.id}>
-    <.repository_item repository={repository}>
-      <:action></:action>
-      <:details></:details>
-    </.repository_item>
+    <.repository_item repository={repository} link={~p"/repositories/#{repository.git_id}"} />
   </li>
 </ul>

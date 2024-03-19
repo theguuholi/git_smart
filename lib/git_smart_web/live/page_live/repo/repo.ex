@@ -20,9 +20,4 @@ defmodule GitSmartWeb.PageLive.Repo do
     Repositories.create(repository)
     {:noreply, update(socket, :is_added, &(!&1))}
   end
-
-  def handle_event("go_to_repo", %{"git_id" => git_id}, socket) do
-    socket = push_navigate(socket, to: ~p"/repositories/#{git_id}")
-    {:noreply, socket}
-  end
 end

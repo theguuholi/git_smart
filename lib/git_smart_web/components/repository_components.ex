@@ -4,10 +4,14 @@ defmodule GitSmartWeb.RepositoryComponents do
   slot :action
   slot :details
   attr :repository, :any
+  attr :link, :string, default: "#"
 
   def repository_item(assigns) do
     ~H"""
-    <a href="" class="flex space-x-3 p-2 bg-sky-50 hover:brightness-95 transition-all rounded-md">
+    <.link
+      navigate={@link}
+      class="flex space-x-3 p-2 bg-sky-50 hover:brightness-95 transition-all rounded-md"
+    >
       <img src={@repository.avatar_url} class="h-6 w-6 rounded-full" />
       <div class="flex-1 space-y-4">
         <div class="flex items-center justify-between">
@@ -25,7 +29,7 @@ defmodule GitSmartWeb.RepositoryComponents do
         </div>
         <%= render_slot(@details) %>
       </div>
-    </a>
+    </.link>
     """
   end
 end
