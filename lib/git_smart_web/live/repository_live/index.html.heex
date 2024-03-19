@@ -1,1 +1,8 @@
-pumpkin
+<ul>
+  <li :for={repository <- @repositories} id={repository.id}>
+    <.repository_item repository={repository}>
+      <:action></:action>
+      <:details></:details>
+    </.repository_item>
+  </li>
+</ul>
