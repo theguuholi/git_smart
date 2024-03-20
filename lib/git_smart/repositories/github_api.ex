@@ -32,6 +32,7 @@ defmodule GitSmart.Repositories.GithubApi do
       description: repository["description"],
       name: repository["watchers_count"],
       open_issues: repository["open_issues"],
+      html_url: repository["html_url"],
       language: repository["language"]
     }
   end

@@ -18,6 +18,8 @@ defmodule GitSmartWeb.Router do
     pipe_through :browser
 
     live "/", PageLive.Index, :index
+    live "/repositories", RepositoryLive.Index, :index
+    live "/repositories/:git_id", RepositoryLive.Show, :show
   end
 
   # Other scopes may use custom stacks.

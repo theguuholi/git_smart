@@ -1,9 +1,11 @@
 defmodule GitSmartWeb.PageLive.Index do
   use GitSmartWeb, :live_view
-  alias GitSmartWeb.PageLive.Repo
   alias GitSmart.Repositories
+  alias GitSmartWeb.PageLive.Repo
 
   def mount(_, _, socket) do
+    git_ids = Repositories.list_all_saved_git_ids()
+    socket = assign(socket, :git_ids, git_ids)
     {:ok, socket}
   end
 
