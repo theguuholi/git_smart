@@ -1,5 +1,4 @@
 defmodule GitSmartWeb.RepositoryLive.Show do
-  alias Ecto.Repo
   use GitSmartWeb, :live_view
   alias GitSmart.Repositories
 

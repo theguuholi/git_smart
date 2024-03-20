@@ -1,6 +1,8 @@
 defmodule GitSmart.RepositoriesTest do
   use GitSmart.DataCase
   alias GitSmart.Repositories
+  alias GitSmart.Repositories.GithubApi
+  import Mock
 
   @payload %{
     avatar_url: "https://avatars.githubusercontent.com/u/68310464?v=4",
@@ -27,6 +29,14 @@ defmodule GitSmart.RepositoriesTest do
       assert repository.full_name == "papercups-io/papercups"
       assert repository.open_issues == 167
       assert repository.html_url == "https://api.github.com/repos/papercups-io/papercups"
+    end
+  end
+
+  describe "list/2" do
+    test "list all repositories" do
+      with_mock GithubApi, search_repository_by_language: fn _, _ -> [@payload] end do
+        assert Repositories.list("elixir") |> hd == @payload
+      end
     end
   end
 
