@@ -5,6 +5,7 @@
     "lib/git_smart_web/telemetry.ex",
     "lib/git_smart_web/router.ex",
     "lib/git_smart_web/components/core_components.ex",
+    "lib/git_smart_web/live/page_live/index.ex",
     "lib/git_smart_web/views/error_helpers.ex",
     "test/support/data_case.ex"
   ],

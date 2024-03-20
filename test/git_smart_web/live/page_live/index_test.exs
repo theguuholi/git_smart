@@ -4,14 +4,6 @@ defmodule GitSmartWeb.PageLive.IndexTest do
   import Mock
   alias GitSmart.Repositories
 
-  setup_with_mocks([
-    {Repositories, [], list: fn _, _ -> {:error, "Rate limit exceeded"} end},
-    {Repositories, [], list_all_saved_git_ids: fn -> [] end},
-    {Repositories, [], create: fn _ -> nil end}
-  ]) do
-    {:ok, %{}}
-  end
-
   describe "render/1 render the default important elements" do
     test "render the index template", %{conn: conn} do
       {:ok, lv, _html} = live(conn, ~p"/")
@@ -23,8 +15,14 @@ defmodule GitSmartWeb.PageLive.IndexTest do
     end
 
     test "throw error message", %{conn: conn} do
-      {:ok, lv, _html} = live(conn, ~p"/")
-      assert has_element?(lv, "p", "Rate limit exceeded")
+      with_mocks([
+        {Repositories, [], list: fn _, _ -> {:error, "Rate limit exceeded"} end},
+        {Repositories, [], list_all_saved_git_ids: fn -> [] end},
+        {Repositories, [], create: fn _ -> nil end}
+      ]) do
+        {:ok, lv, _html} = live(conn, ~p"/")
+        assert has_element?(lv, "p", "Rate limit exceeded")
+      end
     end
   end
 end
